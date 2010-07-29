@@ -1,0 +1,13 @@
+Dear <%= @order.name %>
+
+Your recent order #<%= @order.number %> has been shipped with the following items:
+
+<% @order.shipments.last.line_items.each do |si| -%>
+  <%= si.variant.short_description || si.variant.name %>
+<% end -%>
+
+Regards,
+
+The <%= @order.store.name %> team
+
+
